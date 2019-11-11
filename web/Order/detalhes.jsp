@@ -9,10 +9,7 @@
 <%@page import="br.com.fatecpg.db.Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-        <%
-            int orderID = Integer.parseInt(request.getParameter("id"));
-            Order order = Order.getOrderById(orderID);
-        %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,6 +23,10 @@
 
             <!-- Sidebar -->
             <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
+            <%
+                int orderID = Integer.parseInt(request.getParameter("id"));
+                Order order = Order.getOrderById(orderID);
+            %>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
@@ -46,47 +47,47 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Order</h6>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div>
                                     <div>
                                         <form>
                                             <div>
-                    <label for="id">ID</label>
-                    <input type="text" name="id" id="id" value="<%=orderID%>" disabled/>
-                </div>
-                <div>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" value="<%=order.getQUANTITY()%>" disabled/>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" value="<%=order.getSALES_DATE()%>" disabled/>
-                </div>
-            </form>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Description</th>
-                        <th>Cost</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <%
-                    List<Product> products = order.getProducts();
-                    for (int i = 0; i < products.size(); i++) {%>
-                        <tr>
-                            <td><%=products.get(i).getPRODUCT_ID()%></td>
-                            <td><%=products.get(i).getDESCRIPTION()%></td>
-                            <td><%=products.get(i).getPURCHASE_COST()%></td>
-                            <td>
-                                <a href="../Product/detalhes.jsp?id=<%=products.get(i).getPRODUCT_ID()%>">detalhes</a>
-                            </td>
-                        </tr>
-                <%  }
-                %>
-                </tbody>
+                                                <label for="id">ID</label>
+                                                <input type="text" name="id" id="id" value="<%=orderID%>" disabled/>
+                                            </div>
+                                            <div>
+                                                <label for="name">Name</label>
+                                                <input type="text" name="name" id="name" value="<%=order.getQUANTITY()%>" disabled/>
+                                            </div>
+                                            <div>
+                                                <label for="email">Email</label>
+                                                <input type="email" name="email" id="email" value="<%=order.getSALES_DATE()%>" disabled/>
+                                            </div>
+                                        </form>
+                                        <div>
+                                            <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Description</th>
+                                                        <th>Cost</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%
+                                                        List<Product> products = order.getProducts();
+                                                        for (int i = 0; i < products.size(); i++) {%>
+                                                    <tr>
+                                                        <td><%=products.get(i).getPRODUCT_ID()%></td>
+                                                        <td><%=products.get(i).getDESCRIPTION()%></td>
+                                                        <td><%=products.get(i).getPURCHASE_COST()%></td>
+                                                        <td>
+                                                            <a href="../Product/detalhes.jsp?id=<%=products.get(i).getPRODUCT_ID()%>">detalhes</a>
+                                                        </td>
+                                                    </tr>
+                                                    <%  }
+                                                    %>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
