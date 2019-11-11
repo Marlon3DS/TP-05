@@ -79,6 +79,31 @@ public class Manufacturer {
             return null;
         }
     }
+    
+    public static Manufacturer getManufacturerById(int manufacturerID){
+        try {
+            String sql = "select MANUFACTURER_ID, NAME, EMAIL from MANUFACTURER where MANUFACTURER_ID =" + manufacturerID;
+            Connection con = ConnectionFactory.openConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            Manufacturer manufacturer = null;
+            if (rs.next()) {
+                manufacturer = new Manufacturer(
+                    rs.getString("MANUFACTURER_ID"),
+                    rs.getString("NAME"),
+                    rs.getString("CITY"),
+                    rs.getString("STATE"),
+                    rs.getString("EMAIL")
+                );
+            }
+            con.close();
+            stmt.close();
+            rs.close();
+            return manufacturer;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     public String getCity() {
         return _city;
