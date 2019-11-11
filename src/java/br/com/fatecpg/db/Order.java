@@ -100,7 +100,6 @@ public class Order {
                 );
                 int id = Integer.parseInt(rs.getString("PRODUCT_ID"));
                 order.products.add(Product.getProductById(id));
-                order.products.add(Product.getProductById(id));
             }
             con.close();
             stmt.close();
