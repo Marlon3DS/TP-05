@@ -61,7 +61,7 @@
                                             <a href="../Manufacturers/detalhes.jsp?id=<%=product.getMANUFACTURER_ID()%>" class="btn btn-primary" >go to Manufacturer</a>
                                         </form>
                                     </div>
-                                </div>
+       
                             </div>
                         </div>
                         <!-- /.container-fluid -->
