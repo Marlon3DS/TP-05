@@ -23,11 +23,11 @@
 
             <!-- Sidebar -->
             <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
+            <!-- End of Sidebar -->
             <%
                 int orderID = Integer.parseInt(request.getParameter("id"));
                 Order order = Order.getOrderById(orderID);
             %>
-            <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -50,17 +50,17 @@
                                 <div>
                                     <div>
                                         <form>
-                                            <div>
-                                                <label for="id">ID</label>
-                                                <input type="text" name="id" id="id" value="<%=orderID%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="id" class="form-text">Order Number</label>
+                                                <input type="text" name="id" id="id" value="<%=orderID%>" disabled class="form-control"/>
                                             </div>
-                                            <div>
-                                                <label for="name">Name</label>
-                                                <input type="text" name="name" id="name" value="<%=order.getQUANTITY()%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="name" class="form-text">Quantity</label>
+                                                <input type="text" name="name" id="name" value="<%=order.getQUANTITY()%>" disabled class="form-control"/>
                                             </div>
-                                            <div>
-                                                <label for="email">Email</label>
-                                                <input type="email" name="email" id="email" value="<%=order.getSALES_DATE()%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="email" class="form-text">Sales Date</label>
+                                                <input type="email" name="email" id="email" value="<%=order.getSALES_DATE()%>" disabled class="form-control"/>
                                             </div>
                                         </form>
                                         <div>

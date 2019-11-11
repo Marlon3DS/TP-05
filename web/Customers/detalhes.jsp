@@ -8,10 +8,7 @@
 <%@page import="br.com.fatecpg.db.Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    int customerID = Integer.parseInt(request.getParameter("id"));
-    Customer customer = Customer.getCustomerById(customerID);
-%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,7 +23,10 @@
             <!-- Sidebar -->
             <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
             <!-- End of Sidebar -->
-
+            <%
+                int customerID = Integer.parseInt(request.getParameter("id"));
+                Customer customer = Customer.getCustomerById(customerID);
+            %>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
@@ -42,27 +42,27 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Customer</h6>
+                                <h3 class="card-title">Customer</h3>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div>
                                     <div>
                                         <form>
-                                            <div>
-                                                <label for="id">ID</label>
-                                                <input type="text" name="id" id="id" value="<%=customer.getId()%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="id" class="form-text">ID</label>
+                                                <input type="text" name="id" id="id" value="<%=customer.getId()%>" disabled class="form-control"/>
                                             </div>
-                                            <div>
-                                                <label for="name">Name</label>
-                                                <input type="text" name="name" id="name" value="<%=customer.getName()%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="name" class="form-text">Name</label>
+                                                <input type="text" name="name" id="name" value="<%=customer.getName()%>" disabled class="form-control"/>
                                             </div>
-                                            <div>
-                                                <label for="email">Email</label>
-                                                <input type="email" name="email" id="email" value="<%=customer.getEmail()%>" disabled/>
+                                            <div class="form-group">
+                                                <label for="email" class="form-text">Email</label>
+                                                <input type="email" name="email" id="email" value="<%=customer.getEmail()%>" disabled class="form-control"/>
                                             </div>
                                         </form>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <div>
+                                            <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
                                                 <tr>
                                                     <th>Order Number</th>
                                                     <th>Quantity</th>
