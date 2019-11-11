@@ -1,9 +1,0 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<header>
-    <nav>
-        <a href="http://localhost:8084/AppWithDB/index.jsp">Home</a>
-        <a href="http://localhost:8084/AppWithDB/Customers/index.jsp">Customers</a>
-        <a href="http://localhost:8084/AppWithDB/Manufacturers/index.jsp">Manufacturers</a>
-    </nav>
-</header>

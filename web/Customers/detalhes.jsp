@@ -8,6 +8,7 @@
 <%@page import="br.com.fatecpg.db.Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +16,6 @@
         <title>Detalhes - Customer</title>
     </head>
     <body>
-        <%@include file="../WEB-INF/jspf/navbar.jspf" %>
         <%
             int customerID = Integer.parseInt(request.getParameter("id"));
             Customer customer = Customer.getCustomerById(customerID);
