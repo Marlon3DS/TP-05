@@ -11,7 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Detalhes - Manufacturer</title>
     </head>
-    <body>
-        <%@include file="../WEB-INF/jspf/navbar.jspf" %>
+    <body>  
     </body>
 </html>
