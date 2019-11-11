@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=request.getContextPath()%>/index.jsp">
         <div class="sidebar-brand-icon">
-            <i class="fab fa-napster"></i>
+            <i class="far fa-address-book"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Meu Artista</div>
+        <div class="sidebar-brand-text mx-3">TP 05</div>
     </a>
 
     <!-- Divider -->
@@ -30,14 +30,14 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="<%=request.getContextPath()%>/Customers/index.jsp">
-            <i class="fas fa-microphone"></i>
+            <i class="fas fa-mug-hot"></i>
             <span>Customers</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="<%=request.getContextPath()%>/Manufacturers/index.jsp">
-            <i class="fas fa-compact-disc"></i>
+            <i class="fas fa-industry"></i>
             <span>Manufacturers</span></a>
     </li>
 

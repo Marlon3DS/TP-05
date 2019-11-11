@@ -51,7 +51,7 @@
                                         Customers
                                     </div>
                                     <div class="card-body">
-                                        <p>Desenvolvido por Afonso</p>
+                                        <a class="nav-link" href="<%=request.getContextPath()%>/Customers/index.jsp">Customers</a>
                                     </div>
                                 </div>
 
@@ -64,7 +64,7 @@
                                         Manufacturers
                                     </div>
                                     <div class="card-body">
-                                        <p>Desenvolvido por Marina</p>
+                                        <a class="nav-link" href="<%=request.getContextPath()%>/Manufacturers/index.jsp">Manufacturers</a>
                                     </div>
                                 </div>
 
