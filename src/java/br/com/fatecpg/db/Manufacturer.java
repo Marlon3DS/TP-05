@@ -108,7 +108,7 @@ public class Manufacturer {
     public static List<Product> getProducts(int manufacturerId){
         try{
             List<Product> produtos = new ArrayList<>();
-            String sql = "select PRODUCT_ID, PURCHASE_COST, DESCRIPTION from PRODUCT where MANUFACTURER_ID =" + manufacturerId;
+            String sql = "select PRODUCT_ID, PURCHASE_COST, DESCRIPTION,MANUFACTURER_ID from PRODUCT where MANUFACTURER_ID=" + manufacturerId;
             Connection con = ConnectionFactory.openConnection();
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -117,7 +117,8 @@ public class Manufacturer {
                 product = new Product(
                     rs.getString("PRODUCT_ID"),
                     rs.getString("PURCHASE_COST"),
-                    rs.getString("DESCRIPTION")
+                    rs.getString("DESCRIPTION"),
+                    rs.getString("MANUFACTURER_ID")
                 );
                 produtos.add(product);
             }

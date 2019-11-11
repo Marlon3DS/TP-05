@@ -17,11 +17,13 @@ public class Product {
     private int PRODUCT_ID;
     private float PURCHASE_COST;
     private String DESCRIPTION;
+    private int MANUFACTURER_ID;
 
-    public Product(String PRODUCT_ID, String PURCHASE_COST, String DESCRIPTION) {
+    public Product(String PRODUCT_ID, String PURCHASE_COST, String DESCRIPTION, String MANUFACTURER_ID) {
         this.PRODUCT_ID = Integer.parseInt(PRODUCT_ID);
         this.PURCHASE_COST = Float.parseFloat(PURCHASE_COST);
         this.DESCRIPTION = DESCRIPTION;
+        this.MANUFACTURER_ID = Integer.parseInt(MANUFACTURER_ID);
     }
 
     public String getDESCRIPTION() {
@@ -50,7 +52,7 @@ public class Product {
     
     public static Product getProductById(int productID){
         try{
-            String sql = "select PRODUCT_ID, PURCHASE_COST, DESCRIPTION from PRODUCT where PRODUCT_ID =" + productID;
+            String sql = "select PRODUCT_ID, PURCHASE_COST, DESCRIPTION, MANUFACTURER_ID from PRODUCT where PRODUCT_ID =" + productID;
             Connection con = ConnectionFactory.openConnection();
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -59,7 +61,8 @@ public class Product {
                 product = new Product(
                     rs.getString("PRODUCT_ID"),
                     rs.getString("PURCHASE_COST"),
-                    rs.getString("DESCRIPTION")
+                    rs.getString("DESCRIPTION"),
+                    rs.getString("MANUFACTURER_ID")
                 );
             }
             con.close();
@@ -69,6 +72,14 @@ public class Product {
         } catch(Exception e){
             return null;
         }
+    }
+
+    public int getMANUFACTURER_ID() {
+        return MANUFACTURER_ID;
+    }
+
+    public void setMANUFACTURER_ID(int MANUFACTURER_ID) {
+        this.MANUFACTURER_ID = MANUFACTURER_ID;
     }
     
 }

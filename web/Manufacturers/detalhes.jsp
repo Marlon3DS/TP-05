@@ -65,6 +65,7 @@
                                                     <th>Product Number</th>
                                                     <th>Purchase Cost</th>
                                                     <th>Description</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -75,6 +76,7 @@
                                                         <td><%=products.get(i).getPRODUCT_ID()%></td>
                                                         <td><%=products.get(i).getPURCHASE_COST()%></td>
                                                         <td><%=products.get(i).getDESCRIPTION()%></td>
+                                                        <td><a href="../Product/detalhes.jsp?id=<%=products.get(i).getPRODUCT_ID()%>">detalhes</a></td>
                                                     </tr>
                                                     <%  }
                                                     %>
