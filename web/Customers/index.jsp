@@ -33,9 +33,7 @@ j<%--
                     <td><%=customers.get(i).getName()%></td>
                     <td><%=customers.get(i).getEmail()%></td>
                     <td>
-                        <a href="detalhes.jsp">detalhes</a> | 
-                        <a href="editar.jsp">editar</a> | 
-                        <a href="excluir.jsp">excluir</a>
+                        <a href="detalhes.jsp?id=<%=customers.get(i).getId()%>">detalhes</a>
                     </td>
                 </tr>
         <%  }

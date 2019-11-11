@@ -35,9 +35,7 @@
                     <td><%=manufacturers.get(i).getCity()%> / <%=manufacturers.get(i).getState()%></td>
                     <td><%=manufacturers.get(i).getEmail()%></td>
                     <td>
-                        <a href="detalhes.jsp">detalhes</a> | 
-                        <a href="editar.jsp">editar</a> | 
-                        <a href="excluir.jsp">excluir</a>
+                        <a href="detalhes.jsp">detalhes</a>
                     </td>
                 </tr>
         <%  }
