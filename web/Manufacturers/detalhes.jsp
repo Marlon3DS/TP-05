@@ -22,8 +22,8 @@
             <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
             <!-- End of Sidebar -->
             <%
-                int customerID = Integer.parseInt(request.getParameter("id"));
-                Customer customer = Customer.getCustomerById(customerID);
+                int manufacturerID = Integer.parseInt(request.getParameter("id"));
+                Manufacturer manufacturer = Manufacturer.getManufacturerById(manufacturerID);
             %>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -40,7 +40,7 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h3 class="card-title">Customer</h3>
+                                <h3 class="card-title">Manufacturer</h3>
                             </div>
                             <div class="card-body">
                                 <div>
@@ -48,37 +48,33 @@
                                         <form>
                                             <div class="form-group">
                                                 <label for="id" class="form-text">ID</label>
-                                                <input type="text" name="id" id="id" value="<%=customer.getId()%>" disabled class="form-control"/>
+                                                <input type="text" name="id" id="id" value="<%=manufacturer.getId()%>" disabled class="form-control"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="form-text">Name</label>
-                                                <input type="text" name="name" id="name" value="<%=customer.getName()%>" disabled class="form-control"/>
+                                                <input type="text" name="name" id="name" value="<%=manufacturer.getName()%>" disabled class="form-control"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="form-text">Email</label>
-                                                <input type="email" name="email" id="email" value="<%=customer.getEmail()%>" disabled class="form-control"/>
+                                                <input type="email" name="email" id="email" value="<%=manufacturer.getEmail()%>" disabled class="form-control"/>
                                             </div>
                                         </form>
                                         <div>
                                             <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
                                                 <tr>
-                                                    <th>Order Number</th>
-                                                    <th>Quantity</th>
-                                                    <th>Sales Date</th>
-                                                    <th>Actions</th>
+                                                    <th>Product Number</th>
+                                                    <th>Purchase Cost</th>
+                                                    <th>Description</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                     <%
-                                                        List<Order> orders = customer.getOrders();
-                                                        for (int i = 0; i < orders.size(); i++) {%>
+                                                        List<Product> products = manufacturer.getProducts();
+                                                        for (int i = 0; i < products.size(); i++) {%>
                                                     <tr>
-                                                        <td><%=orders.get(i).getORDER_NUM()%></td>
-                                                        <td><%=orders.get(i).getQUANTITY()%></td>
-                                                        <td><%=orders.get(i).getSALES_DATE()%></td>
-                                                        <td>
-                                                            <a href="../Order/detalhes.jsp?id=<%=orders.get(i).getORDER_NUM()%>">detalhes</a>
-                                                        </td>
+                                                        <td><%=products.get(i).getPRODUCT_ID()%></td>
+                                                        <td><%=products.get(i).getPURCHASE_COST()%></td>
+                                                        <td><%=products.get(i).getDESCRIPTION()%></td>
                                                     </tr>
                                                     <%  }
                                                     %>
