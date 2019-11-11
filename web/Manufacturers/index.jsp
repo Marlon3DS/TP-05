@@ -60,7 +60,7 @@
                                                 <td><%=manufacturers.get(i).getCity()%> / <%=manufacturers.get(i).getState()%></td>
                                                 <td><%=manufacturers.get(i).getEmail()%></td>
                                                 <td>
-                                                    <a href="detalhes.jsp">detalhes</a>
+                                                    <a href="detalhes.jsp?id=<%=manufacturers.get(i).getId()%>">detalhes</a>
                                                 </td>
                                             </tr>
                                             <%  }

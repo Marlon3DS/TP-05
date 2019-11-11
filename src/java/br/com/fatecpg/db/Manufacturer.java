@@ -82,7 +82,7 @@ public class Manufacturer {
     
     public static Manufacturer getManufacturerById(int manufacturerID){
         try {
-            String sql = "select MANUFACTURER_ID, NAME, EMAIL from MANUFACTURER where MANUFACTURER_ID =" + manufacturerID;
+            String sql = "select MANUFACTURER_ID, NAME, CITY, STATE, EMAIL from MANUFACTURER where MANUFACTURER_ID =" + manufacturerID;
             Connection con = ConnectionFactory.openConnection();
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -101,6 +101,31 @@ public class Manufacturer {
             rs.close();
             return manufacturer;
         } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public static List<Product> getProducts(int manufacturerId){
+        try{
+            List<Product> produtos = new ArrayList<>();
+            String sql = "select PRODUCT_ID, PURCHASE_COST, DESCRIPTION from PRODUCT where MANUFACTURER_ID =" + manufacturerId;
+            Connection con = ConnectionFactory.openConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            Product product = null;
+            if (rs.next()) {
+                product = new Product(
+                    rs.getString("PRODUCT_ID"),
+                    rs.getString("PURCHASE_COST"),
+                    rs.getString("DESCRIPTION")
+                );
+                produtos.add(product);
+            }
+            con.close();
+            stmt.close();
+            rs.close();
+            return produtos;
+        } catch(Exception e){
             return null;
         }
     }

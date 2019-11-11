@@ -69,7 +69,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <%
-                                                        List<Product> products = manufacturer.getProducts();
+                                                        List<Product> products = manufacturer.getProducts(manufacturerID);
                                                         for (int i = 0; i < products.size(); i++) {%>
                                                     <tr>
                                                         <td><%=products.get(i).getPRODUCT_ID()%></td>
